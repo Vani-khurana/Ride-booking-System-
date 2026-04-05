@@ -1,0 +1,39 @@
+:root {
+  --bg-dark: #f3f4f6;
+  --bg-panel: #ffffff;
+  --accent-primary: #F9D342;
+  --accent-primary-hover: #e0b91e;
+  --accent-success: #22c55e;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-light: #e5e7eb;
+  --shadow-main: 0 -10px 40px rgba(0, 0, 0, 0.1);
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-sans); background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; overflow: hidden; }
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+.ripple {
+  position: absolute; border-radius: 50%; border: 2px solid var(--accent-primary);
+  animation: radar 2s infinite cubic-bezier(0.25, 1, 0.5, 1); opacity: 0; pointer-events: none;
+}
+@keyframes radar {
+  0% { width: 0; height: 0; opacity: 1; margin-top: 0; margin-left: 0; }
+  100% { width: 100px; height: 100px; opacity: 0; margin-top: -50px; margin-left: -50px; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-8px); }
+  30%       { transform: translateX(8px); }
+  45%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  75%       { transform: translateX(-4px); }
+  90%       { transform: translateX(4px); }
+}
